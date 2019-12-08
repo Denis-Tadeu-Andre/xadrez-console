@@ -1,15 +1,15 @@
 ﻿using tabuleiro;
 namespace xadrez
 {
-    class Torre : Peca
+    class Bispo : Peca
     {
-        public Torre(Tabuleiro tab, Cor cor) : base(tab, cor)
+        public Bispo(Tabuleiro tab, Cor cor) : base(tab, cor)
         {
         }
 
         public override string ToString()
         {
-            return ("T");
+            return ("B");
         }
 
         private bool podeMover(Posicao pos)
@@ -24,8 +24,8 @@ namespace xadrez
 
             Posicao pos = new Posicao(0, 0);
 
-            // Verfica se posicao acima está livre ou com uma peça adversario (outra cor)
-            pos.definirValores(posicao.linha - 1, posicao.coluna);
+            // Verfica se posicao noroeste está livre ou com uma peça adversario (outra cor)
+            pos.definirValores(posicao.linha - 1, posicao.coluna - 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
@@ -33,11 +33,12 @@ namespace xadrez
                 {
                     break;
                 }
+                pos.definirValores(pos.linha - 1, pos.coluna - 1);
                 pos.linha = pos.linha - 1;
             }
 
-            // Verfica se posicao abaixo está livre ou com uma peça adversario (outra cor)
-            pos.definirValores(posicao.linha + 1, posicao.coluna);
+            // Verfica se posicao nordeste está livre ou com uma peça adversario (outra cor)
+            pos.definirValores(posicao.linha - 1, posicao.coluna + 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
@@ -45,11 +46,12 @@ namespace xadrez
                 {
                     break;
                 }
-                pos.linha = pos.linha + 1;
+                pos.definirValores(pos.linha - 1, pos.coluna + 1);
+                pos.linha = pos.linha - 1;
             }
 
-            // Verfica se posicao a direita está livre ou com uma peça adversario (outra cor)
-            pos.definirValores(posicao.linha, posicao.coluna + 1);
+            // Verfica se posicao sudeste está livre ou com uma peça adversario (outra cor)
+            pos.definirValores(posicao.linha + 1, posicao.coluna + 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
@@ -57,11 +59,12 @@ namespace xadrez
                 {
                     break;
                 }
-                pos.coluna = pos.coluna + 1;
+                pos.definirValores(pos.linha + 1, pos.coluna + 1);
+                pos.linha = pos.linha - 1;
             }
 
-            // Verfica se posicao a esquerda está livre ou com uma peça adversario (outra cor)
-            pos.definirValores(posicao.linha, posicao.coluna - 1);
+            // Verfica se posicao sudoeste está livre ou com uma peça adversario (outra cor)
+            pos.definirValores(posicao.linha + 1, posicao.coluna - 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
@@ -69,7 +72,8 @@ namespace xadrez
                 {
                     break;
                 }
-                pos.coluna = pos.coluna - 1;
+                pos.definirValores(pos.linha + 1, pos.coluna - 1);
+                pos.linha = pos.linha - 1;
             }
             return mat;
         }
