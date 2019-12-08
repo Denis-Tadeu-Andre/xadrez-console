@@ -13,6 +13,7 @@ namespace xadrez
             return ("R");
         }
 
+        // testa se a casa está vazia ou com uma peça adversaria
         private bool podeMover(Posicao pos)
         {
             Peca p = tab.peca(pos);
