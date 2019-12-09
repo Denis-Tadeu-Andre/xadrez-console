@@ -4,7 +4,10 @@ namespace xadrez
     class Rei : Peca
     {
         private PartidaDeXadrez partida;
+<<<<<<< HEAD
 
+=======
+>>>>>>> temp
         public Rei(Tabuleiro tab, Cor cor, PartidaDeXadrez partida) : base(tab, cor)
         {
             this.partida = partida;
@@ -96,11 +99,19 @@ namespace xadrez
             {
                 // #jogadaespecial roque pequeno
                 Posicao posT1 = new Posicao(posicao.linha, posicao.coluna + 3);
+<<<<<<< HEAD
                 if (testeTorreParaRoque(posT1))
                 {
                     Posicao p1 = new Posicao(posicao.linha, posicao.coluna + 1);
                     Posicao p2 = new Posicao(posicao.linha, posicao.coluna + 2);
                     if (tab.peca(p1) == null && tab.peca(p2) == null)
+=======
+                if (testeTorreParaRoque (posT1))
+                {
+                    Posicao p1 = new Posicao(posicao.linha, posicao.coluna + 1);
+                    Posicao p2 = new Posicao(posicao.linha, posicao.coluna + 2);
+                    if (tab.peca(p1) == null && tab.peca(p2) == null) 
+>>>>>>> temp
                     {
                         mat[posicao.linha, posicao.coluna + 2] = true;
                     }
@@ -119,6 +130,10 @@ namespace xadrez
                     }
                 }
             }
+<<<<<<< HEAD
+=======
+
+>>>>>>> temp
             return mat;
         }
     }
