@@ -34,7 +34,6 @@ namespace xadrez
                     break;
                 }
                 pos.definirValores(pos.linha - 1, pos.coluna - 1);
-                pos.linha = pos.linha - 1;
             }
 
             // Verfica se posicao nordeste está livre ou com uma peça adversario (outra cor)
@@ -47,7 +46,6 @@ namespace xadrez
                     break;
                 }
                 pos.definirValores(pos.linha - 1, pos.coluna + 1);
-                pos.linha = pos.linha - 1;
             }
 
             // Verfica se posicao sudeste está livre ou com uma peça adversario (outra cor)
@@ -60,7 +58,6 @@ namespace xadrez
                     break;
                 }
                 pos.definirValores(pos.linha + 1, pos.coluna + 1);
-                pos.linha = pos.linha - 1;
             }
 
             // Verfica se posicao sudoeste está livre ou com uma peça adversario (outra cor)
@@ -73,7 +70,6 @@ namespace xadrez
                     break;
                 }
                 pos.definirValores(pos.linha + 1, pos.coluna - 1);
-                pos.linha = pos.linha - 1;
             }
             return mat;
         }
